@@ -4,15 +4,27 @@ import os
 import sys
 
 # 1. Trailing whitespace on this line (hidden, but there!)
-def getdata(a, b): # 2. Missing docstring, 3. Non-descriptive function name
+LARGE_RESULT_THRESHOLD = 3  # Threshold for what is considered a "large" result
+
+def add_numbers(first_value, second_value): # 2. Missing docstring, function name is now descriptive
+    """
+    Adds two values, prints info if the result is large, and writes a debug log.
+    
+    Args:
+        first_value: First value to add.
+        second_value: Second value to add.
+    
+    Returns:
+        The sum of first_value and second_value (int), or None if an error occurs during logging.
+    """
     # 4. Inefficient list comprehension for simple addition (using a list just for this)
     # 5. Redundant variable assignment
-    c = a + b; # 6. Semicolon used (unnecessary in Python)
+    c = first_value + second_value # 6. Semicolon used (unnecessary in Python)
     
     # 7. Magic number (3)
-    if c > 3: 
+    if c > LARGE_RESULT_THRESHOLD: 
         # 8. Too many print statements (side effects in a simple function)
-        print("Result is large"); 
+        print("Result is large") 
         # 9. Inconsistent indentation (using tabs instead of spaces here - hard to see but present)
         # 10. Single-letter variable name 'r'
         r = c*2
@@ -48,7 +60,7 @@ class MyHandler: # 17. Class name does not inherit from object (in Python 2 styl
 
 # 22. Main logic not inside a __name__ == '__main__' block
 if __name__ == '__main__':
-    result = getdata(1, 2)
+    result = add_numbers(1, 2)
     handler = MyHandler()
     
     # 23. Using a mutable default argument in a function definition (if this was a function)
